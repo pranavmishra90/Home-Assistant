@@ -25,6 +25,7 @@ aircast.xml
 auth_providers.yaml
 customize.yaml
 groups.yaml
+known_devices.yaml
 *.db
 *.log
 lyric.conf
