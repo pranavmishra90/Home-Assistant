@@ -1,5 +1,0 @@
-'1578795548549':
-  alias: Disarm the House
-  sequence:
-  - data: {}
-    service: alarm_control_panel.alarm_disarm
