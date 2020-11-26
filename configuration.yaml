@@ -1,17 +1,7 @@
 homeassistant:
   customize: !include customize.yaml
-  # auth_providers:
-  #   - type: trusted_networks
-  #     trusted_networks:
-  #       - 192.168.0.0/24
-  #       - fd00::/8
-  #     trusted_users:
-  #       192.168.0.41: shekhar
-  #       192.168.0.42: tanuja
-  #       192.168.0.43: pranav
-  #       192.168.0.61: pranav
-  #       192.168.0.92: tablet
-  external_url: "https://mishrahome.duckdns.org"
+
+  external_url: !secret external_url
   internal_url: "http://192.168.0.51:8123"
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
@@ -62,7 +52,7 @@ homekit:
       - input_boolean.garbage_day
       - climate.upstairs_thermostat
       - climate.downstairs_thermostat
-      - switch.grow_light #plant grow light
+      - switch.grow_light #plant grow lights
       - switch.family_room_plug #family room floor light
       - switch.light_loft_lamp #loft lamp
 
@@ -106,27 +96,7 @@ iqvia:
 #  Light Switch
 ####################################
 ####################################
-light:
-  - platform: template
-    lights:
-      tablet_backlight:
-        friendly_name: Tablet Backlight
-        value_template: '{{ states.sensor.kiosk_device_info.attributes["isScreenOn"] }}'
-        level_template: '{{ states.sensor.kiosk_device_info.attributes["screenBrightness"] }}'
-        turn_on:
-          service: rest_command.kiosk_command
-          data:
-            cmd: screenOn
-        turn_off:
-          service: rest_command.kiosk_command
-          data:
-            cmd: screenOff
-        set_level:
-          service: rest_command.kiosk_command
-          data_template:
-            cmd: setStringSetting
-            key: screenBrightness
-            value: "{{ brightness }}"
+
 
 ####################################
 #  Input Select
@@ -189,9 +159,6 @@ calendar:
 ####################################
 ####################################
 
-rest_command:
-  kiosk_command:
-    url: !secret rest_url_kiosk_command
 
 ####################################
 #All BINARY sensor Information
@@ -276,16 +243,6 @@ sensor:
     type: time
     start: "{{ now().replace(hour=0, minute=0, second=0) }}"
     end: "{{ now() }}"
-
-  #   #Kitchen Kiosk Tablet
-  #--------------------
-  - platform: rest
-    name: Kitchen Kiosk Tablet API
-    resource: !secret rest_url_kiosk_device_info
-    json_attributes:
-      - screenBrightness
-      - isScreenOn
-    value_template: "OK"
 
   #   #Ring Sensors
   #--------------------
