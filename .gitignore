@@ -32,7 +32,7 @@ customize.yaml
 groups.yaml
 known_devices.yaml
 recorder.yaml
-zones.yaml
+zone.yaml
 
 #Ignore these folders
 custom_components/
