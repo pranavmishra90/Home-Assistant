@@ -27,7 +27,6 @@ home-assistant.log
 aircast.xml
 lyric.conf
 
-
 auth_providers.yaml
 customize.yaml
 groups.yaml
