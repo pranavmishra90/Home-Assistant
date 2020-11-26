@@ -1,0 +1,12 @@
+- id: '1605754242360'
+  alias: Notify on Home Assistant Restart
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: notify.mobile_app_pranavs_iphone_xs
+    data:
+      message: Home Assistant has started
+  mode: single
