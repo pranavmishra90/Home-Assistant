@@ -2,22 +2,16 @@
 # Example .gitignore file for your config dir.
 # An * ensures that everything will be ignored.
 *
-# You can whitelist files/folders with !, these will not be ignored.
+# Whitelisting
 !*.yaml
 !.gitignore
 !*.md
 !*.sh
 !*.js*
 
-# Comment these 2 lines if you don't want to include your SSH keys
-#!.ssh/
-#!id_rsa*
 
-# Comment this if you don't want to include your Node-RED flows.
-# This is only valid if you install Node-RED as Home Assistant Add-on
-#!node-red/
 
-# Uncomment this if you don' want to include secrets.yaml 
+# Do not upload Secrets.yaml !!
 secrets.yaml
 
 # Ignore these files
@@ -37,7 +31,7 @@ lyric.conf
 recorder.yaml
 zones.yaml
 
-#Ignore the following folders
+#Ignore these folders
 custom_components/
 tts/
 www/
