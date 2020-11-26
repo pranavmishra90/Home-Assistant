@@ -17,18 +17,21 @@ secrets.yaml
 # Ignore these files
 .storage
 .cloud
-.google.token 
+.google.token
+*.db
+*.log
+
 home-assistant.log
 .HA_VERSION
 .ring_cache.pickle
 aircast.xml
+lyric.conf
+
+
 auth_providers.yaml
 customize.yaml
 groups.yaml
 known_devices.yaml
-*.db
-*.log
-lyric.conf
 recorder.yaml
 zones.yaml
 
