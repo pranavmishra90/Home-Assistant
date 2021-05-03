@@ -20,6 +20,7 @@ secrets.yaml
 .google.token
 *.db
 *.log
+*.xml
 
 home-assistant.log
 .HA_VERSION
@@ -38,3 +39,4 @@ zone.yaml
 custom_components/
 tts/
 www/
+ssl/

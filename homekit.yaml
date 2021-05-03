@@ -1,0 +1,18 @@
+filter:
+  include_domains:
+    - alarm_control_panel
+    - camera
+  include_entities:
+    - binary_sensor.front_door_ding
+    - binary_sensor.front_door_motion
+    - input_boolean.ring_disable_auto_rearm
+    - input_boolean.garbage_day
+    - binary_sensor.two_car_garage
+    - climate.upstairs_thermostat
+    - climate.downstairs_thermostat
+    - switch.light_plant_dining #dining room plant grow lights
+    - switch.light_family_room_lamp #smart plug a
+    - switch.light_loft_lamp #loft lamp
+    - switch.light_pranav_lamp #smart plug d
+    - switch.light_plant_kitchen #kitchen plant grow light
+    - switch.light_living_room_table_lamp

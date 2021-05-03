@@ -20,8 +20,6 @@ script: !include_dir_named scripts
 scene: !include scenes.yaml
 zone: !include zone.yaml
 
-
-
 http:
   # Add use_x_forwarded_for because of NGINX reverse proxy
   use_x_forwarded_for: true
@@ -30,6 +28,8 @@ http:
     - 172.30.32.0/23
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  # ssl_certificate: /config/ssl/cert.pem
+  # ssl_key: /config/ssl/privkey.pem
 
 #Database for logging
 recorder: !include recorder.yaml
@@ -40,21 +40,7 @@ tts:
     service_name: google_say
 
 #Apple HomeKit Integration / Siri
-homekit:
-  filter:
-    include_domains:
-      - alarm_control_panel
-      - camera
-    include_entities:
-      - binary_sensor.front_door_ding
-      - binary_sensor.front_door_motion
-      - input_boolean.ring_disable_auto_rearm
-      - input_boolean.garbage_day
-      - climate.upstairs_thermostat
-      - climate.downstairs_thermostat
-      - switch.grow_light #plant grow lights
-      - switch.family_room_plug #family room floor light
-      - switch.light_loft_lamp #loft lamp
+homekit: !include homekit.yaml
 
 # #Honeywell Lyric Thermoostat
 lyric:
@@ -63,8 +49,8 @@ lyric:
 
 # # Notifications
 notify:
-#   - platform: discord
-#     token: !secret discord_token
+  #   - platform: discord
+  #     token: !secret discord_token
   - platform: tts
     name: "Google Home Mini"
     tts_service: tts.google_say
@@ -96,7 +82,6 @@ iqvia:
 #  Light Switch
 ####################################
 ####################################
-
 
 ####################################
 #  Input Select
@@ -147,18 +132,16 @@ mqtt:
 ####################################
 
 calendar:
-- platform: ics
-  calendars:
+  - platform: ics
+    calendars:
       - name: "TV Shows"
         url: !secret calendar_tv
         includeAllDay: True
-
 
 ####################################
 # Rest Commands
 ####################################
 ####################################
-
 
 ####################################
 #All BINARY sensor Information
@@ -231,7 +214,7 @@ sensor:
   - platform: history_stats
     name: Upstairs HVAC Daily Usage
     entity_id: sensor.hvac_upstairs_status
-    state: "heating" 
+    state: "heating"
     type: time
     start: "{{ now().replace(hour=0, minute=0, second=0) }}"
     end: "{{ now() }}"
@@ -286,12 +269,12 @@ sensor:
 ####################################
 
 #Plex (Drishti) Configuration
-plex:
-  host: 192.168.0.14
-  port: 32400
-  token: !secret plex_token
-  media_player:
-    use_episode_art: true
+# plex:
+#   host: 192.168.0.14
+#   port: 32400
+#   token: !secret plex_token
+#   media_player:
+#     use_episode_art: true
 #-----------------------------------
 #Media Players in the House
 #-----------------------------------

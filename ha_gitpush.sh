@@ -1,9 +1,15 @@
-# Go to /config folder or 
-# Change this to your Home Assistant config folder if it is different
+## Script for pushing all changes to GitHub
+# Not a best practice, but convenient
+
+
+# Go to /config folder
 cd /config
-# Add all files to the repository with respect to .gitignore rules
+
+# Add all files to the repository
 git add .
+
 # Commit changes with message with current date stamp
-git commit -m "config files on `date +'%d-%m-%Y %H:%M:%S'`"
-# Push changes towards GitHub
+git commit -m "Update on `date +'%Y-%m-%d %H:%M:%S'`"
+
+# Push changes to GitHub
 git push -u origin master
